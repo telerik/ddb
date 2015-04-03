@@ -1,0 +1,4 @@
+#!/bin/sh
+
+DDB_DIR="`dirname \"$0\"`"
+node "$DDB_DIR/ddb.js" "$@"

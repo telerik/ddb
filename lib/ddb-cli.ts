@@ -13,13 +13,10 @@ $injector.register("config", {
 });
 
 class StaticConfig  extends staticConfigBaseLib.StaticConfigBase {
-	public get disableAnalytics():boolean {
-		return true;
-	}
-
-	public get disableHooks():boolean {
-		return true;
-	}
+	public disableAnalytics = true;
+	public disableHooks = true;
+	public enableDeviceRunCommandOnWindows = true;
+	public CLIENT_NAME = "ddb";
 }
 
 $injector.register("staticConfig", StaticConfig);
