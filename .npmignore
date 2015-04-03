@@ -1,0 +1,5 @@
+bin/*.cmd
+bin/ddb
+
+lib/**/*.ts
+lib/**/*.js.map
