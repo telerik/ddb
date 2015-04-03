@@ -2,7 +2,7 @@
 "use strict";
 
 require("./bootstrap");
-
+import staticConfigBaseLib = require("./common/static-config-base");
 import Fiber = require("fibers");
 import Future = require("fibers/future");
 import errors = require("./common/errors");
@@ -12,12 +12,17 @@ $injector.register("config", {
 	CI_LOGGER: false
 });
 
-$injector.register("staticConfig", {
-	disableAnalytics: true,
-	disableHooks: true,
-	MAN_PAGES_DIR: "",
-	HTML_PAGES_DIR: ""
-});
+class StaticConfig  extends staticConfigBaseLib.StaticConfigBase {
+	public get disableAnalytics():boolean {
+		return true;
+	}
+
+	public get disableHooks():boolean {
+		return true;
+	}
+}
+
+$injector.register("staticConfig", StaticConfig);
 $injector.register("analyticsService", {
 
 });
@@ -43,6 +48,9 @@ $injector.register("mobilePlatformsCapabilities", {
 				hostPlatformsForDeploy: ["win32", "darwin"]
 			}
 		}
+	},
+	getPlatformNames: (): string[] => {
+		return ["iOS"];
 	}
 });
 
