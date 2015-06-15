@@ -4,8 +4,7 @@ device run
 Usage | Syntax
 ------|-------
 General | `$ ddb device get-file [--app <Application ID>] [--device <Device ID>]`
-Runs the selected application on a connected iOS device.
-
+Reads the selected file from a connected device.
 
 Options:
    * `--device` - If multiple devices are connected, sets the device on which you want to run the app.

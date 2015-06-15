@@ -4,8 +4,7 @@ device run
 Usage | Syntax
 ------|-------
 General | `$ ddb device list-files [--app <Application ID>] [--device <Device ID>]`
-Runs the selected application on a connected Android or iOS device.
-You can run this command on one connected device at a time.
+Recursively lists all files and directories, starting at the root or given path.
 
 `<Application ID>` is the application identifier as listed by `$ ddb device list-applications` 
 `<Device ID>` is the device index or identifier as listed by run `$ ddb device`
