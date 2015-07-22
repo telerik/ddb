@@ -6,6 +6,7 @@ import staticConfigBaseLib = require("./common/static-config-base");
 import Fiber = require("fibers");
 import Future = require("fibers/future");
 import errors = require("./common/errors");
+import options = require("./common/options");
 errors.installUncaughtExceptionListener();
 
 $injector.register("config", {
@@ -53,6 +54,7 @@ $injector.register("mobilePlatformsCapabilities", {
 
 Fiber(() => {
 	var commandDispatcher : ICommandDispatcher = $injector.resolve("commandDispatcher");
+	options.printAppOutput = true;
 
 	if (process.argv[2] === "completion") {
 		commandDispatcher.completeCommand().wait();
