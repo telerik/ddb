@@ -3,3 +3,6 @@ bin/ddb
 
 lib/**/*.ts
 lib/**/*.js.map
+
+.tscache/
+.tgz
