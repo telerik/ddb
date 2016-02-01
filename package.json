@@ -1,7 +1,7 @@
 {
   "name": "ddb",
   "preferGlobal": true,
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "Telerik <support@telerik.com>",
   "description": "Device Debug Bridge",
   "bin": {

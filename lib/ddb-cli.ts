@@ -7,6 +7,7 @@ import Fiber = require("fibers");
 import Future = require("fibers/future");
 import errors = require("./common/errors");
 import options = require("./common/options");
+import path = require("path");
 errors.installUncaughtExceptionListener();
 
 $injector.register("config", {
@@ -14,10 +15,15 @@ $injector.register("config", {
 });
 
 class StaticConfig  extends staticConfigBaseLib.StaticConfigBase {
+	constructor(private $fs: IFileSystem) {
+		super();
+	}
+
 	public disableAnalytics = true;
 	public disableHooks = true;
 	public enableDeviceRunCommandOnWindows = true;
 	public CLIENT_NAME = "ddb";
+	public version = this.$fs.readJson(path.join(__dirname, "..", "package.json")).wait().version;
 }
 
 $injector.register("staticConfig", StaticConfig);
